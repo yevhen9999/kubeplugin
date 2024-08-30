@@ -1,17 +1,27 @@
 #!/bin/bash
 
-# Define command-line arguments
+# Check if the correct number of arguments are provided
+if [ "$#" -ne 2 ]; then
+    echo "Usage: kubectl kubeplugin <namespace> <resource_type>"
+    exit 1
+fi
 
-RESOURCE_TYPE=$0
+# Define command-line arguments
+NAMESPACE=$1
+RESOURCE_TYPE=$2
+
+# Print header
+printf "%-15s %-15s %-50s %-10s %-10s\n" "Resource" "Namespace" "Name" "CPU" "Memory"
+echo "----------------------------------------------------------------------------------------------------"
 
 # Retrieve resource usage statistics from Kubernetes
-kubectl $2 $RESOURCE_TYPE -n $1 | tail -n +2 | while read line
-do
+kubectl top $RESOURCE_TYPE -n $NAMESPACE --no-headers | while read -r line; do
   # Extract CPU and memory usage from the output
-  NAME=$(echo $line | awk '{print $1}')
-  CPU=$(echo $line | awk '{print $2}')
-  MEMORY=$(echo $line | awk '{print $3}')
+  NAME=$(echo "$line" | awk '{print $1}')
+  CPU=$(echo "$line" | awk '{print $2}')
+  MEMORY=$(echo "$line" | awk '{print $3}')
 
   # Output the statistics to the console
-  # "Resource, Namespace, Name, CPU, Memory"
+  printf "%-15s %-15s %-50s %-10s %-10s\n" "$RESOURCE_TYPE" "$NAMESPACE" "$NAME" "$CPU" "$MEMORY"
+#  echo "$RESOURCE_TYPE, $NAMESPACE, $NAME, $CPU, $MEMORY"
 done
