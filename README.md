@@ -1,4 +1,4 @@
-## Kubeplugin Usage Instructions
+## Kubeplugin
 
 ### Description
 
@@ -14,7 +14,7 @@ The `kubeplugin` script is a custom `kubectl` plugin that provides CPU and memor
    ```bash
    sudo mv scripts/kubeplugin /usr/local/bin/kubectl-kubeplugin
    ```
-## Usage
+### Usage
 
 Run the plugin using the following syntax:
 
