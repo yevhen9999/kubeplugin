@@ -14,7 +14,7 @@ The `kubeplugin` script is a custom `kubectl` plugin that provides CPU and memor
    ```bash
    sudo mv scripts/kubeplugin /usr/local/bin/kubectl-kubeplugin
    ```
-Usage
+## Usage
 
 Run the plugin using the following syntax:
 
@@ -23,7 +23,7 @@ Run the plugin using the following syntax:
 
     <namespace>: The Kubernetes namespace to query (e.g., kube-system).
     <resource_type>: The type of resources to query (e.g., pods, nodes).
-
+   ```
 Example
 
    ```bash
