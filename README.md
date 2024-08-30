@@ -27,5 +27,12 @@ Run the plugin using the following syntax:
 Example
 
    ```bash
-   kubectl kubeplugin kube-system pods
+   kubectl kubeplugin kube-system pod
+   Resource        Namespace       Name                                               CPU        Memory    
+   ----------------------------------------------------------------------------------------------------
+   pod             kube-system     coredns-576bfc4dc7-97g4w                           3m         18Mi      
+   pod             kube-system     local-path-provisioner-6795b5f9d8-g6jhg            1m         9Mi       
+   pod             kube-system     metrics-server-557ff575fb-q6gml                    4m         32Mi      
+   pod             kube-system     svclb-traefik-da01c7e4-r9z5g                       0m         0Mi       
+   pod             kube-system     traefik-5fb479b77-cc5tq                            1m         29Mi  
    ```
