@@ -36,3 +36,4 @@ Example
    pod             kube-system     svclb-traefik-da01c7e4-r9z5g                       0m         0Mi       
    pod             kube-system     traefik-5fb479b77-cc5tq                            1m         29Mi  
    ```
+![kubeplugin-demo](kubeplugin.gif)
